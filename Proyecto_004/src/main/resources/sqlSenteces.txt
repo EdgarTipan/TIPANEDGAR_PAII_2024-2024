@@ -1,0 +1,16 @@
+CREATE TABLE Students(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(30), last_name VARCHAR(30), age INT)
+
+CREATE TABLE Professors(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(30), last_name VARCHAR(30), age INT)
+
+CREATE TABLE Subjects(id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(30), description VARCHAR(30), level INT)
+
+CREATE TABLE Schedules (id INT PRIMARY KEY AUTO_INCREMENT, subject_id INT, student_id INT, professor_id INT, 
+                                    start_time VARCHAR(30), end_time VARCHAR(30), day VARCHAR(30), 
+                                    FOREIGN KEY (subject_id) REFERENCES Subjects(id),
+												FOREIGN KEY (student_id) REFERENCES Students(id), 
+												FOREIGN KEY (professor_id) REFERENCES Professors(id));
+																							
+SELECT *FROM Students;
+SELECT *FROM Professors;
+SELECT *FROM Subjects;
+SELECT *FROM Schedules;
